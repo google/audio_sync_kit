@@ -90,7 +90,7 @@ def CalculatePercentiles(latencies, percentiles=(0, 50, 75, 90, 95, 99, 100)):
   """
   values = [d for _, d in latencies if not math.isnan(d)]
   if values:
-    vals = numpy.percentile(sorted([abs(v) for v in values]),
+    vals = numpy.percentile(sorted([v for v in values]),
                             percentiles).tolist()
     return zip(percentiles, vals)
   else:
